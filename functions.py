@@ -23,16 +23,18 @@ def Write2File(fn="out.txt", text=""):
 def EscapeText(text):
     return text.replace("\t","").replace("\r","").replace("\n", "")
 
-def GetLinksFromNews(url="https://www.shz.de/lokales/flensburger-tageblatt/rss", sFile="meldungen_flensburg.txt"):
-    import feedparser
+def GetDataFromNews(url="https://www.shz.de/lokales/flensburger-tageblatt/rss", sFile="meldungen_flensburg.txt"):
+    import feedparser, json
     feed = feedparser.parse( url )
     n = feed[ "items" ]
-    datas = []
+    data = []
     for x in n:
         try:
             ax = {"name": x["title"], "url": x["link"], "date":x['published'], "text": x["text"].replace("<p>","").replace("&uuml","ü").replace("&ouml","ö").replace("</p>","").replace("&auml","ä").replace("<br>","").replace("</br>","").replace("<br />","").replace("ä;","ä").replace("&szlig;","ß").replace("ü;","ü").replace("&Uuml","Ü").replace("Ü;","Ü").replace("ö;","ö")}
-            datas.append(ax)
+            data.append(ax)
         except Exception as e:
             print("key not found:\t", e)
             continue
-    return datas
+    jsonarray = json.dumps(data)
+    Write2File(sFile, str(jsonarray))
+    return data

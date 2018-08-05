@@ -4,21 +4,18 @@
 """
 import json
 from tkinter import *
-
-functions = __import__("functions")
-data = functions.GetLinksFromNews()#(url="", sFile="")
-for x in data:
-    print(x["name"],"\n", x["text"])
-
-d = data
-jsonarray = json.dumps(d)
-print(jsonarray)
+URLs = ["https://www.shz.de/lokales/flensburger-tageblatt/rss"]
+data = []
+for url in URLs:
+    functions = __import__("functions")
+    data = functions.GetDataFromNews(url=url) #(url="", sFile="")
 
 """
     UI Stuff
 """
 def showData(k): #tkinter F
     print(k["name"], k["date"])
+    print(k["text"])
 
 root = Tk()
 
