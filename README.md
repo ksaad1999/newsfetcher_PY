@@ -5,9 +5,10 @@ While the script does that, you can look in the articles (so it shows up the cur
 This script is usually used for RSS Feeds from SHZ.de
 
 ## Getting Started
-
-Just clone it and then run "setup.py"
-After that just run the "start.py"
+```
+ Just clone it and then run "setup.py"
+ After that just run the "start.py"
+```
 
 ### Prerequisites
 
