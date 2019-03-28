@@ -29,4 +29,4 @@ Look at "Getting Started"
 ## License
 
 Just use it or edit it (refork it) what ever.
-But you have to link the respo here.
+But you have to link the repo here.
