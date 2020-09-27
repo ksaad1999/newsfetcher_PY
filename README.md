@@ -24,7 +24,7 @@ Look at "Getting Started"
 
 ## Authors
 
-* **Karim Saad**
+* **ksaadDE**
 
 ## License
 
